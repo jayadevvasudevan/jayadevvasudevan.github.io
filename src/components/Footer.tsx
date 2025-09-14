@@ -62,7 +62,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-3">Connect</h4>
             <div className="flex space-x-4">
               <a 
-                href="https://linkedin.com/in/jayadev" 
+                href="https://www.linkedin.com/in/jayadevvasudevan/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-pulse-500 rounded-lg flex items-center justify-center transition-colors"
@@ -70,7 +70,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a 
-                href="https://github.com/jayadev" 
+                href="https://github.com/jayadevvasudevan" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-pulse-500 rounded-lg flex items-center justify-center transition-colors"
@@ -83,7 +83,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2024 Jayadev. All rights reserved. Available for exciting data engineering opportunities.
+            © 2025 Jayadev. All rights reserved. Available for exciting data engineering opportunities.
           </p>
         </div>
       </div>
