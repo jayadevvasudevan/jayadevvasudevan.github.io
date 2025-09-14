@@ -201,28 +201,57 @@ npm run deploy
 
 ## 🚢 Deployment
 
-### **GitHub Pages (Automatic)**
+### **GitHub Pages (Automatic) ⭐ Recommended**
 
-The site is automatically deployed to GitHub Pages using GitHub Actions:
+This site is configured for automatic deployment to GitHub Pages:
 
-1. **Push to main branch** triggers automatic deployment
-2. **Build process** runs on GitHub's servers
-3. **Live site** updates at `https://jayadevvasudevan.github.io`
+1. **Push to main branch** - triggers automatic deployment via GitHub Actions
+2. **Build process** runs on GitHub's servers using the workflow in `.github/workflows/deploy.yml`
+3. **Live site** updates automatically at `https://jayadevvasudevan.github.io`
+
+```bash
+# Deploy your changes
+git add .
+git commit -m "feat: your update description"
+git push origin main
+
+# Your site will be automatically deployed! 🚀
+```
 
 ### **Manual Deployment**
 
+If you prefer manual deployment:
+
 ```bash
-# Build and deploy to GitHub Pages
+# Build and deploy to GitHub Pages manually
 npm run deploy
+```
+
+### **Local Preview of Production Build**
+
+```bash
+# Build for production
+npm run build
+
+# Preview the production build locally
+npm run preview
 ```
 
 ### **Alternative Deployments**
 
-The built site (`dist/` folder) can be deployed to:
+The built site (`dist/` folder) can also be deployed to:
 - **Vercel**: Connect your GitHub repo for automatic deployments
-- **Netlify**: Drag and drop the `dist` folder
-- **AWS S3**: Upload `dist` contents to S3 bucket
+- **Netlify**: Drag and drop the `dist` folder or connect GitHub
+- **AWS S3**: Upload `dist` contents to S3 bucket with static hosting
 - **Any static hosting**: Upload `dist` folder contents
+
+### **Important Notes for GitHub Pages**
+- ✅ **Base path**: Configured for user GitHub Pages site (`/`)
+- ✅ **SPA routing**: Client-side routing support added with `404.html`
+- ✅ **Auto-deployment**: GitHub Actions workflow configured
+- ✅ **Asset optimization**: Vite handles bundling and minification
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## 📁 Project Structure
 

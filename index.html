@@ -7,7 +7,22 @@
     <title>Jayadev Vasudevan - Software Developer & Data Engineer</title>
     <meta name="description" content="Portfolio of Jayadev Vasudevan, Software Developer & Data Engineer with 4+ years of experience in Production Operations, Python, PySpark, Scala, and big data technologies." />
     <meta name="author" content="Jayadev Vasudevan" />
-    <meta property="og:image" content="/portfolio/og-image-update.png" />
+    <meta property="og:image" content="/og-image-update.png" />
+    
+    <!-- GitHub Pages SPA redirect script -->
+    <script>
+      // Single Page Application redirect for GitHub Pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
   </head>
 
   <body>
