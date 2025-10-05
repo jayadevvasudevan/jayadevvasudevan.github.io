@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       title: "AjayDev Stories App - React Portfolio Website",
       description: "A modern React-based portfolio and blogging platform built with TypeScript, featuring user authentication, story creation, and interactive commenting system. Deployed on GitHub Pages with comprehensive CI/CD.",
       image: "img/achu app.png",
-      technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS", "GitHub Actions"],
+      technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS", "GitHub-Actions"],
       icon: TrendingUp,
       details: "Full-stack application with real-time database, authentication, and modern UI components with responsive design.",
       githubUrl: "https://github.com/Ajaydevv/ajaydevv.github.io",
