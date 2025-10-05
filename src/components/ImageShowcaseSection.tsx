@@ -7,7 +7,7 @@ const ProjectsSection = () => {
     {
       title: "Big Data Learning Environment - Hadoop Edge Node Setup",
       description: "A comprehensive learning workspace for installing, configuring, and mastering Hadoop edge nodes with integrated Big Data technologies including Hive, Spark, Impala, and related ecosystem tools.",
-      image: "public/img/hadoop.png",
+      image: "img/hadoop.png",
       technologies: ["Hadoop", "Docker", "Apache Hive", "Apache Spark", "Shell Scripts"],
       icon: Database,
       details: "Complete installation guides, Docker configurations, and automation scripts for setting up production-ready Big Data environments.",
@@ -17,7 +17,7 @@ const ProjectsSection = () => {
     {
       title: "AjayDev Stories App - React Portfolio Website",
       description: "A modern React-based portfolio and blogging platform built with TypeScript, featuring user authentication, story creation, and interactive commenting system. Deployed on GitHub Pages with comprehensive CI/CD.",
-      image: "public/img/achu app.png",
+      image: "img/achu app.png",
       technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS", "GitHub Actions"],
       icon: TrendingUp,
       details: "Full-stack application with real-time database, authentication, and modern UI components with responsive design.",
@@ -27,7 +27,7 @@ const ProjectsSection = () => {
     {
       title: "Ollama Copilot Local - VS Code AI Extension",
       description: "A VS Code extension that provides GitHub Copilot-like code completions using Ollama running locally. Features streaming support, language-aware prompts, smart caching, and connection status indicators.",
-      image: "public/img/ollama.png",
+      image: "img/ollama.png",
       technologies: ["TypeScript", "VS Code Extension API", "Ollama", "AI/ML", "Node.js"],
       icon: Workflow,
       details: "Local AI-powered code completions without sending code to external services, supporting multiple programming languages.",
