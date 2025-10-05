@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import LottieAnimation from "./LottieAnimation";
+import Aurora from "./Aurora";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,12 +23,13 @@ const Hero = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  useEffect(() => {
-    fetch('/loop-header.lottie')
-      .then(response => response.json())
-      .then(data => setLottieData(data))
-      .catch(error => console.error("Error loading Lottie animation:", error));
-  }, []);
+  // Temporarily disable Lottie loading to fix page loading issue
+  // useEffect(() => {
+  //   fetch('/loop-header.lottie')
+  //     .then(response => response.json())
+  //     .then(data => setLottieData(data))
+  //     .catch(error => console.error("Error loading Lottie animation:", error));
+  // }, []);
 
   useEffect(() => {
     // Skip effect on mobile
@@ -88,21 +90,32 @@ const Hero = () => {
   
   return (
     <section 
-      className="overflow-hidden relative bg-cover" 
+      className="overflow-hidden relative" 
       id="hero" 
       style={{
-        backgroundImage: 'url("/Header-background.webp")',
-        backgroundPosition: 'center 30%', 
         padding: isMobile ? '100px 12px 40px' : '120px 20px 60px'
       }}
     >
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
+      {/* Aurora Animated Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Aurora
+          colorStops={["#FF4500", "#FF8C00", "#FFD700"]}
+          blend={1.0}
+          amplitude={isMobile ? 1.5 : 2.0}
+          speed={isMobile ? 0.5 : 0.7}
+        />
+      </div>
       
-      <div className="container px-4 sm:px-6 lg:px-8" ref={containerRef}>
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center">
-          <div className="w-full lg:w-1/2">
+      {/* Background gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/50 to-white/30 z-10"></div>
+      
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full z-20"></div>
+      
+      <div className="container px-4 sm:px-6 lg:px-8 relative z-30" ref={containerRef}>
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl text-center">
             <div 
-              className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in" 
+              className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in inline-flex" 
               style={{ animationDelay: "0.1s" }}
             >
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">👋</span>
@@ -119,14 +132,14 @@ const Hero = () => {
             
             <p 
               style={{ animationDelay: "0.5s" }} 
-              className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-gray-950 font-normal text-base sm:text-lg text-left"
+              className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-gray-950 font-normal text-base sm:text-lg mx-auto max-w-3xl"
             >
               Software Developer with over 4 years of experience in Production Operations, specializing in data engineering and ETL processes. 
               Skilled in orchestrating data workflows using Apache Airflow, creating robust ETL jobs, and performing comprehensive data validation and quality checks.
             </p>
             
             <div 
-              className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in" 
+              className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in" 
               style={{ animationDelay: "0.7s" }}
             >
               <a 
@@ -163,37 +176,10 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          
-          <div className="w-full lg:w-1/2 relative mt-6 lg:mt-0">
-            {lottieData ? (
-              <div className="relative z-10 animate-fade-in" style={{ animationDelay: "0.9s" }}>
-                <LottieAnimation 
-                  animationPath={lottieData} 
-                  className="w-full h-auto max-w-lg mx-auto"
-                  loop={true}
-                  autoplay={true}
-                />
-              </div>
-            ) : (
-              <>
-              <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
-              <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                <img 
-                  ref={imageRef} 
-                  src="/placeholder.svg" 
-                  alt="Jayadev - Software Developer & Data Engineer" 
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-out" 
-                  style={{ transformStyle: 'preserve-3d' }} 
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20"></div>
-              </div>
-              </>
-            )}
-          </div>
         </div>
       </div>
       
-      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-pulse-100/30 rounded-full blur-3xl -z-10 parallax" data-speed="0.05"></div>
+      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-pulse-100/30 rounded-full blur-3xl z-20 parallax" data-speed="0.05"></div>
     </section>
   );
 };

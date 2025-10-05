@@ -5,28 +5,34 @@ import { ExternalLink, Github, Database, Workflow, TrendingUp } from "lucide-rea
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Real-time Data Pipeline with Apache Airflow",
-      description: "Built a robust ETL pipeline processing millions of records daily, with automated data validation and quality checks. Implemented using Python, PySpark, and Apache Airflow for workflow orchestration.",
-      image: "/lovable-uploads/c3d5522b-6886-4b75-8ffc-d020016bb9c2.png",
-      technologies: ["Python", "Apache Airflow", "PySpark", "Data Validation"],
-      icon: Workflow,
-      details: "Reduced data processing time by 60% while ensuring 99.9% data accuracy through comprehensive validation frameworks."
-    },
-    {
-      title: "Snowflake Data Warehouse Optimization",
-      description: "Designed and implemented a scalable data warehouse solution on Snowflake, optimizing query performance and reducing costs through efficient data modeling and partitioning strategies.",
-      image: "/lovable-uploads/af412c03-21e4-4856-82ff-d1a975dc84a9.png",
-      technologies: ["Snowflake", "SQL", "Data Modeling", "Performance Tuning"],
+      title: "Big Data Learning Environment - Hadoop Edge Node Setup",
+      description: "A comprehensive learning workspace for installing, configuring, and mastering Hadoop edge nodes with integrated Big Data technologies including Hive, Spark, Impala, and related ecosystem tools.",
+      image: "public/img/hadoop.png",
+      technologies: ["Hadoop", "Docker", "Apache Hive", "Apache Spark", "Shell Scripts"],
       icon: Database,
-      details: "Achieved 40% cost reduction and 3x query performance improvement through strategic optimization."
+      details: "Complete installation guides, Docker configurations, and automation scripts for setting up production-ready Big Data environments.",
+      githubUrl: "https://github.com/jayadevvasudevan/hadoop-Setup",
+      liveUrl: null
     },
     {
-      title: "Big Data Analytics with Spark & Scala",
-      description: "Developed large-scale data processing applications using Spark and Scala, handling petabyte-scale datasets for business intelligence and analytics use cases.",
-      image: "/lovable-uploads/dc13e94f-beeb-4671-8a22-0968498cdb4c.png",
-      technologies: ["Scala", "Apache Spark", "Hive", "Impala"],
+      title: "AjayDev Stories App - React Portfolio Website",
+      description: "A modern React-based portfolio and blogging platform built with TypeScript, featuring user authentication, story creation, and interactive commenting system. Deployed on GitHub Pages with comprehensive CI/CD.",
+      image: "public/img/achu app.png",
+      technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS", "GitHub Actions"],
       icon: TrendingUp,
-      details: "Processed 10TB+ daily data volumes with sub-second query response times for critical business metrics."
+      details: "Full-stack application with real-time database, authentication, and modern UI components with responsive design.",
+      githubUrl: "https://github.com/Ajaydevv/ajaydevv.github.io",
+      liveUrl: "https://ajaydevv.github.io"
+    },
+    {
+      title: "Ollama Copilot Local - VS Code AI Extension",
+      description: "A VS Code extension that provides GitHub Copilot-like code completions using Ollama running locally. Features streaming support, language-aware prompts, smart caching, and connection status indicators.",
+      image: "public/img/ollama.png",
+      technologies: ["TypeScript", "VS Code Extension API", "Ollama", "AI/ML", "Node.js"],
+      icon: Workflow,
+      details: "Local AI-powered code completions without sending code to external services, supporting multiple programming languages.",
+      githubUrl: "https://github.com/jayadevvasudevan/ollama-copilot-local",
+      liveUrl: null
     }
   ];
 
@@ -88,14 +94,36 @@ const ProjectsSection = () => {
                     </div>
                     
                     <div className="flex gap-3">
-                      <button className="flex items-center gap-2 px-4 py-2 bg-pulse-500 text-white rounded-lg hover:bg-pulse-600 transition-colors text-sm">
-                        <ExternalLink className="w-4 h-4" />
-                        View Details
-                      </button>
-                      <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm">
+                      {project.liveUrl ? (
+                        <a 
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-pulse-500 text-white rounded-lg hover:bg-pulse-600 transition-colors text-sm"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View Live
+                        </a>
+                      ) : (
+                        <a 
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-pulse-500 text-white rounded-lg hover:bg-pulse-600 transition-colors text-sm"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View Project
+                        </a>
+                      )}
+                      <a 
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm"
+                      >
                         <Github className="w-4 h-4" />
-                        Code
-                      </button>
+                        GitHub
+                      </a>
                     </div>
                   </div>
                 </div>

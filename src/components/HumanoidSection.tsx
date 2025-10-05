@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
-import { Database, Workflow, Code, BarChart3, Cloud, Cpu, Zap, Settings } from "lucide-react";
+import { Database, Workflow, Code, BarChart3, Cloud, Cpu, Zap, Settings, Globe, Bot, Layers } from "lucide-react";
 
 const SkillsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -15,23 +15,30 @@ const SkillsSection = () => {
     {
       title: "Data Engineering & ETL",
       icon: Database,
-      skills: ["Python", "PySpark", "Apache Airflow", "ETL Pipelines"],
-      description: "Building robust data pipelines and orchestrating complex workflows",
+      skills: ["Python", "PySpark", "Apache Airflow", "ETL Pipelines", "Data Validation", "Quality Checks"],
+      description: "4+ years of professional experience building robust data pipelines and orchestrating complex workflows",
       bgImage: "/background-section1.png"
     },
     {
-      title: "Big Data Technologies",
+      title: "Big Data & Cloud Technologies",
       icon: BarChart3,
-      skills: ["Spark", "Hive", "Impala", "Scala"],
-      description: "Processing and analyzing large-scale datasets efficiently",
+      skills: ["Apache Spark", "Apache Hive", "Apache Impala", "Scala", "Hadoop Ecosystem", "Snowflake", "Docker"],
+      description: "Processing large-scale datasets efficiently in production environments with cloud integration",
       bgImage: "/background-section2.png"
     },
     {
-      title: "Cloud & Integration",
-      icon: Cloud,
-      skills: ["Snowflake", "Camunda", "Data Validation", "System Integration"],
-      description: "Ensuring data accuracy and seamless system connectivity",
+      title: "Full-Stack Development",
+      icon: Code,
+      skills: ["React", "TypeScript", "Node.js", "Supabase", "Tailwind CSS", "GitHub Actions", "Shell Scripting"],
+      description: "Modern web development with responsive design, CI/CD, and system automation",
       bgImage: "/background-section3.png"
+    },
+    {
+      title: "AI & Development Tools",
+      icon: Bot,
+      skills: ["Ollama", "AI/ML Integration", "VS Code Extensions", "Local AI Models", "API Development", "Git"],
+      description: "Building AI-powered tools and extensions for enhanced developer productivity",
+      bgImage: "/background-section1.png"
     }
   ];
 
@@ -76,10 +83,12 @@ const SkillsSection = () => {
             progress = Math.min(1, Math.max(0, Math.abs(sectionRect.top) / totalScrollDistance));
           }
           
-          // Determine which card should be visible based on progress
-          if (progress >= 0.66) {
+          // Determine which card should be visible based on progress (faster transitions)
+          if (progress >= 0.75) {
+            setActiveCardIndex(3);
+          } else if (progress >= 0.5) {
             setActiveCardIndex(2);
-          } else if (progress >= 0.33) {
+          } else if (progress >= 0.25) {
             setActiveCardIndex(1);
           } else {
             setActiveCardIndex(0);
@@ -107,12 +116,13 @@ const SkillsSection = () => {
   const isFirstCardVisible = isIntersecting;
   const isSecondCardVisible = activeCardIndex >= 1;
   const isThirdCardVisible = activeCardIndex >= 2;
+  const isFourthCardVisible = activeCardIndex >= 3;
 
   return (
     <div 
       ref={sectionRef} 
       className="relative" 
-      style={{ height: '300vh' }}
+      style={{ height: '250vh' }}
     >
       <section className="w-full h-screen py-10 md:py-16 sticky top-0 overflow-hidden bg-white" id="skills">
         <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col">
@@ -135,7 +145,8 @@ const SkillsSection = () => {
             {skillCategories.map((category, index) => {
               const IconComponent = category.icon;
               const isVisible = index === 0 ? isFirstCardVisible : 
-                               index === 1 ? isSecondCardVisible : isThirdCardVisible;
+                               index === 1 ? isSecondCardVisible : 
+                               index === 2 ? isThirdCardVisible : isFourthCardVisible;
               
               return (
                 <div 
@@ -145,8 +156,12 @@ const SkillsSection = () => {
                     ...cardStyle,
                     zIndex: 10 + (index * 10),
                     transform: `translateY(${isVisible ? 
-                      index === activeCardIndex ? (index === 0 ? '90px' : index === 1 ? '55px' : '15px') :
-                      index < activeCardIndex ? '45px' : '200px' : '200px'}) scale(${index === activeCardIndex ? 1 : 0.9 + (index * 0.05)})`,
+                      index === activeCardIndex ? (
+                        index === 0 ? '90px' : 
+                        index === 1 ? '60px' : 
+                        index === 2 ? '30px' : '15px'
+                      ) :
+                      index < activeCardIndex ? '30px' : '200px' : '200px'}) scale(${index === activeCardIndex ? 1 : 0.9 + (index * 0.02)})`,
                     opacity: isVisible ? (index === activeCardIndex ? 1 : 0.9) : 0
                   }}
                 >

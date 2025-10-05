@@ -77,6 +77,7 @@ const Navbar = () => {
           <a href="#experience" className="nav-link">Experience</a>
           <a href="#projects" className="nav-link">Projects</a>
           <a href="#services" className="nav-link">Services</a>
+          <a href="#hobbies" className="nav-link">Hobbies</a>
           <a href="#contact" className="nav-link">Contact</a>
         </nav>
 
@@ -157,6 +158,16 @@ const Navbar = () => {
             }}
           >
             Services
+          </a>
+          <a 
+            href="#hobbies" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Hobbies
           </a>
           <a 
             href="#contact" 
